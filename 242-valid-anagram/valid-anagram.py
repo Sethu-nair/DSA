@@ -1,7 +1,12 @@
 class Solution(object):
     def isAnagram(self, s, t):
-        if sorted(s)==sorted(t):
-            return True
-        else:
-            return False
-        
+        def getDictionary(string):
+            d = {}
+            for char in string:
+                if char in d:
+                    d[char] += 1
+                else:
+                    d[char] = 1
+            return d
+
+        return getDictionary(s) == getDictionary(t)
